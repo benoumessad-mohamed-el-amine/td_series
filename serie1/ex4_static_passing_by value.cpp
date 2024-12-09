@@ -6,16 +6,16 @@ struct product{
     int weight;
     int price;
     };
-void init(product &M  );//cant pass them by value for some reason
+product init(product M  );//cant pass them by value for some reason
 product modify(product M);
-void display(product &M );
+void display(product M );
 
 int main(){
 product M1, M2 , M ;
 cout<<"enter infos about product M1 :"<<endl;
-init(M1 );
+M1 =init(M1 );
 cout<<"enter infos about product M2 :"<<endl;
-init(M2 );
+M2= init(M2 );
 cout<<"enter infos about product M1 that you wanna modify :"<<endl;
 M = modify(M1);
 cout<<"products before modification : "<<endl;
@@ -31,7 +31,7 @@ display(M2);
     
 return 0;
 }
-void init(product &M){
+product init(product M){
   cout<<"the product code: ";
   cin>>M.code;
   cout<<"the product weight: ";
@@ -39,6 +39,7 @@ void init(product &M){
   cout<<"the product price: ";
   cin>>M.price;
   cout<<endl;
+  return M;
 }
 product modify(product M){
      cout<<"the product code: ";
@@ -50,9 +51,10 @@ product modify(product M){
   cout<<endl;
   return M;  
 }
-void display(product &M){
+void display(product M){
 cout<<"the product code: "<<M.code<<endl;
-cout<<"the product price: "<<M.price<<endl;
 cout<<"the product weight: "<<M.weight<<endl;
+cout<<"the product price: "<<M.price<<endl;
 cout<<endl;
+
 }
